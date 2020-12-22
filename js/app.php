@@ -2,13 +2,15 @@
   var app = new Vue({
     el: '#app',
     store,
-    data: {
-      message: 'Hello world!!!'
+    data: function() {
+      return {
+        message: 'Hello world!!!'
+      }
     },
     computed: {
       ...Vuex.mapState(['colors']),
     },
-    mounted: function () {
+    mounted: function() {
       store.dispatch('getColors')
     }
   })
