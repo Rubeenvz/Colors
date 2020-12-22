@@ -4,6 +4,7 @@
       <div class="col-lg-3">
         <div class="text-center">
           <h1>{{message}}</h1>
+          {{colors}}
         </div>
       </div>
     </div>
