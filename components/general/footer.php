@@ -4,6 +4,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vuex@3.6.0/dist/vuex.js"></script>
+    <?php include './js/store.php';?>
     <?php include './js/app.php';?>
     <script>
       AOS.init();
