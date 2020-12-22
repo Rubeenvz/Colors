@@ -1,8 +1,17 @@
 <script>
   var app = new Vue({
     el: '#app',
-    data: {
-      message: 'Hello world!!!'
+    store,
+    data: function() {
+      return {
+        message: 'Hello world!!!'
+      }
+    },
+    computed: {
+      ...Vuex.mapState(['colors']),
+    },
+    mounted: function() {
+      store.dispatch('getColors')
     }
   })
 </script>
