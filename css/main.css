@@ -1,3 +1,8 @@
+:root {
+  --color1: #000000;
+  --allTransitions: all ease-in-out 0.3s;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -18,4 +23,56 @@ h6,
 p,
 span {
   font-family: "Roboto", sans-serif;
+}
+
+.home-color__container {
+  width: 100%;
+  cursor: pointer;
+}
+
+.home-color__title {
+  text-transform: capitalize;
+}
+
+.card-body {
+  position: relative;
+  z-index: 4;
+}
+
+.home-color__view {
+  position: absolute;
+  width: 100%;
+  height: 0%;
+}
+
+.home-color__view,
+.home-color__span,
+.home-color__color {
+  transition: var(--allTransitions);
+}
+
+.home-color__container:hover .home-color__view {
+  height: 100%;
+}
+
+.home-color__container:hover .home-color__color,
+.home-color__container:hover .home-color__span {
+  color: white !important;
+}
+
+.page-item.active .page-link {
+  background-color: var(--color1);
+  border-color: var(--color1);
+  transition: var(--allTransitions);
+}
+
+.page-link,
+.page-link:hover {
+  color: var(--color1);
+  transition: var(--allTransitions);
+}
+
+.header__title {
+  color: var(--color1);
+  transition: var(--allTransitions);
 }

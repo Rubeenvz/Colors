@@ -26,6 +26,7 @@
     },
     actions: {
       async getColors({ commit, state }) {
+        commit('setColors', [])
         try {
           const res = await axios.get(`https://reqres.in/api/colors/?page=${state.currentPage}&per_page=${state.totalResults}`)
           if(res.status === 200) {
