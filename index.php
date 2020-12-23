@@ -1,12 +1,7 @@
 <?php include './components/general/header.php'; ?>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-3">
-        <div class="text-center">
-          <h1>{{message}}</h1>
-          {{colors}}
-        </div>
-      </div>
-    </div>
+    <?php include './components/home/header.php'; ?>
+    <?php include './components/home/grid.php'; ?>
+    <?php include './components/home/pagination.php'; ?>
   </div>
 <?php include './components/general/footer.php'; ?>
