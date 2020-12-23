@@ -3,6 +3,7 @@
     state: {
       colors: [],
       currentPage: 1,
+      totalResults: 6,
       totalPages: null,
       currentColor: null,
     },
@@ -18,14 +19,18 @@
       },
       setCurrentColor(state, data) {
         state.currentColor = data
+      },
+      setTotalResults(state, data) {
+        state.totalResults = data
       }
     },
     actions: {
       async getColors({ commit, state }) {
+        commit('setColors', [])
         try {
-          const res = await axios.get(`https://reqres.in/api/colors/?page=${state.currentPage}`)
+          const res = await axios.get(`https://reqres.in/api/colors/?page=${state.currentPage}&per_page=${state.totalResults}`)
           if(res.status === 200) {
-            commit('setColors', res.data)
+            commit('setColors', res.data.data)
             commit('setTotalPages', res.data.total_pages)
           }
         } catch (error) {
