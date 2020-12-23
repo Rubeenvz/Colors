@@ -2,11 +2,6 @@
   var app = new Vue({
     el: '#app',
     store,
-    data: function() {
-      return {
-        message: 'Hello world!!!'
-      }
-    },
     computed: {
       ...Vuex.mapState(['colors', 'totalPages', 'currentColor']),
       currentPage: {
@@ -15,6 +10,16 @@
         },
         set(value) {
           this.$store.commit('setCurrentPage', value)
+          store.dispatch('getColors')
+        }
+      },
+      totalResults: {
+        get() {
+          return this.$store.state.totalResults
+        },
+        set(value) {
+          this.$store.commit('setTotalResults', value)
+          this.$store.commit('setCurrentPage', 1)
           store.dispatch('getColors')
         }
       },

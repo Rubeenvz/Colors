@@ -6,6 +6,7 @@
       totalResults: 6,
       totalPages: null,
       currentColor: null,
+      colorCopied: null
     },
     mutations: {
       setColors(state, data) {
@@ -22,6 +23,9 @@
       },
       setTotalResults(state, data) {
         state.totalResults = data
+      },
+      setColorCopied(state, data) {
+        state.colorCopied = data
       }
     },
     actions: {
