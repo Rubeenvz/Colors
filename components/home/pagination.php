@@ -7,5 +7,11 @@
         <li class="page-item"><button class="page-link" :style="{color: currentColor}">Siguiente</button></li>
       </ul>
     </nav>
+    <div class="text-center mt-3">
+      <label class="mr-2" for="results">Resultados por pagina:</label>
+      <select name="results" v-model="totalResults">
+        <option v-for="n in 12" :key="'pagination-select__'+n" :value="n">{{n}}</option>
+      </select>
+    </div>
   </div>
 </div>

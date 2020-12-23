@@ -13,6 +13,16 @@
           store.dispatch('getColors')
         }
       },
+      totalResults: {
+        get() {
+          return this.$store.state.totalResults
+        },
+        set(value) {
+          this.$store.commit('setTotalResults', value)
+          this.$store.commit('setCurrentPage', 1)
+          store.dispatch('getColors')
+        }
+      },
     },
     mounted: function() {
       store.dispatch('getColors')
