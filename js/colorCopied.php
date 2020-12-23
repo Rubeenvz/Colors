@@ -7,7 +7,7 @@
           <h1 class="text-capitalize">{{colorCopied.name}}</h1>
           <h1>{{colorCopied.color}}</h1>
           <h2 class="mt-5">¡Copiado!</h2>
-        <div>
+        </div>
       </div>
     </div>
     `,
