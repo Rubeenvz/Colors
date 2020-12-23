@@ -1,7 +1,7 @@
 <script>
   Vue.component('home-color', {
     template: `
-    <div class="card home-color__container" @mouseover="changeColor(data.color)">
+    <div class="card home-color__container" @mouseover="changeColor(data.color)" @mouseleave="changeColor()">
       <div class="home-color__view" :style="{background: data.color}"></div>
       <div class="card-header" :style="{background: data.color}">
       </div>
@@ -27,8 +27,18 @@
     `,
     props: ['data'],
     methods: {
+      ...Vuex.mapMutations(['setCurrentColor']),
       changeColor(color) {
-        document.documentElement.style.setProperty('--color1', color)
+        if(color) {
+          this.setCurrentColor(color)
+          document.documentElement.style.setProperty('--color1', color)
+          document.documentElement.style.setProperty('--color2', color+'33')
+        }
+        else {
+          this.setCurrentColor(null)
+          document.documentElement.style.setProperty('--color1', 'black')
+          document.documentElement.style.setProperty('--color2', 'white')
+        }
       }
     }
   })

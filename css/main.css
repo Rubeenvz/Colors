@@ -1,5 +1,7 @@
 :root {
   --color1: #000000;
+  --color2: #ffffff;
+  --transparent: #ffffff00;
   --allTransitions: all ease-in-out 0.3s;
 }
 
@@ -12,6 +14,8 @@ html {
   overflow: hidden;
   width: 100%;
   position: relative;
+  background: var(--transparent);
+  min-height: 100vh;
 }
 
 h1,
@@ -64,15 +68,26 @@ span {
   background-color: var(--color1);
   border-color: var(--color1);
   transition: var(--allTransitions);
+  color: white !important;
 }
 
 .page-link,
 .page-link:hover {
-  color: var(--color1);
+  color: black;
   transition: var(--allTransitions);
 }
 
 .header__title {
-  color: var(--color1);
+  transition: var(--allTransitions);
+}
+
+.home-background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.home-background tr {
   transition: var(--allTransitions);
 }

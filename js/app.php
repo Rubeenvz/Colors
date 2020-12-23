@@ -8,7 +8,7 @@
       }
     },
     computed: {
-      ...Vuex.mapState(['colors', 'totalPages']),
+      ...Vuex.mapState(['colors', 'totalPages', 'currentColor']),
       currentPage: {
         get() {
           return this.$store.state.currentPage
