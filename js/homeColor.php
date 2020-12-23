@@ -1,7 +1,7 @@
 <script>
   Vue.component('home-color', {
     template: `
-    <div class="card home-color__container" @mouseover="changeColor(data.color)" @mouseleave="changeColor()">
+    <div class="card home-color__container" @click="copyColor(data.color)" @mouseover="changeColor(data.color)" @mouseleave="changeColor()">
       <div class="home-color__view" :style="{background: data.color}"></div>
       <div class="card-header" :style="{background: data.color}">
       </div>
@@ -15,6 +15,12 @@
             </span>
             {{data.year}}
           </p>
+          <p class="mb-0" v-show="colorCopied === data.color">
+            <span class="home-color__span" :style="{color: data.color}">
+              <i class="fas fa-star"></i>
+            </span>
+            Copiado!!!
+          </p>
           <p class="mb-0">
             <span class="home-color__span" :style="{color: data.color}">
               <i class="fas fa-heart"></i>
@@ -26,8 +32,11 @@
     </div>
     `,
     props: ['data'],
+    computed: {
+      ...Vuex.mapState(['colorCopied'])
+    },
     methods: {
-      ...Vuex.mapMutations(['setCurrentColor']),
+      ...Vuex.mapMutations(['setCurrentColor', 'setColorCopied']),
       changeColor(color) {
         if(color) {
           this.setCurrentColor(color)
@@ -39,7 +48,18 @@
           document.documentElement.style.setProperty('--color1', 'black')
           document.documentElement.style.setProperty('--color2', 'white')
         }
-      }
+      },
+      copyColor(color) {
+        this.setColorCopied(color)
+        if (!navigator.clipboard) {
+          fallbackCopyTextToClipboard(color);
+          return
+        }
+        navigator.clipboard.writeText(color).then(function() {
+          console.log('Copied!!!')
+        }, function(err) {
+        })
+      },
     }
   })
 </script>
