@@ -67,6 +67,10 @@ span {
   color: white !important;
 }
 
+button:focus {
+  outline: 0;
+}
+
 .page-link,
 .page-link:hover {
   color: black;
@@ -89,9 +93,9 @@ span {
 }
 
 .color-copied__container {
-  width: 150vw;
-  height: 150vh;
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

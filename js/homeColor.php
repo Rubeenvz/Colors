@@ -3,12 +3,12 @@
     template: `
     <div class="card home-color__container" @click="copyColor(data)" @mouseover="changeColor(data.color)" @mouseleave="changeColor()">
       <div class="home-color__view" :style="{background: data.color}"></div>
-      <div class="card-header" :style="{background: data.color}">
+      <div class="card-header py-3" :style="{background: data.color}">
       </div>
       <div class="card-body text-center">
         <h4 class="home-color__title text-capitalize">{{data.name}}</h4>
         <p class="home-color__color my-2" :style="{color: data.color}">Color: {{data.color}}</p>
-        <div class="d-flex justify-content-between mt-2">
+        <div class="d-flex flex-column flex-md-row justify-content-between mt-2">
           <p class="mb-0">
             <span class="home-color__span" :style="{color: data.color}">
               <i class="fas fa-globe-americas"></i>
