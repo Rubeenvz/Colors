@@ -9,6 +9,8 @@
           return this.$store.state.currentPage
         },
         set(value) {
+          if(value < 1 || value > this.totalPages)
+            return
           this.$store.commit('setCurrentPage', value)
           store.dispatch('getColors')
         }
