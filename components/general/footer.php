@@ -6,6 +6,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vuex@3.6.0/dist/vuex.js"></script>
     <?php include './js/store.php';?>
+    <?php include './js/colorCopied.php';?>
     <?php include './js/homeColor.php';?>
     <?php include './js/app.php';?>
     <script>
